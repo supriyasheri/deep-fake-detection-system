@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Deep Fake Detection System</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="big-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <main class="container">
+
+        <header>
+            <h1>
+                <i class="fa-solid fa-shield-halved"></i>
+                Deep Fake Detector
+            </h1>
+
+            <p>
+                Advanced neural network analysis for image and video authenticity
+            </p>
+        </header>
+
+        <!-- Upload Section -->
+        <div class="upload-section glass-panel" id="drop-zone">
+
+            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+
+            <h2>Drag & Drop Media Here</h2>
+
+            <p>or</p>
+
+            <input type="file"
+                   id="file-input"
+                   accept="image/*,video/*"
+                   hidden>
+
+            <button class="btn primary-btn"
+                    onclick="document.getElementById('file-input').click()">
+                Browse Files
+            </button>
+
+            <p class="file-info">
+                Supports JPG, PNG, MP4, AVI
+            </p>
+
+        </div>
+
+        <!-- Preview Section -->
+        <div class="preview-section glass-panel hidden"
+             id="preview-section">
+
+            <div class="media-container" id="media-container">
+                <!-- Selected media will appear here -->
+            </div>
+
+            <div class="controls">
+
+                <button class="btn secondary-btn" id="reset-btn">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    Change Media
+                </button>
+
+                <button class="btn analyze-btn" id="analyze-btn">
+                    <i class="fa-solid fa-bolt"></i>
+                    Analyze Media
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Loading Section -->
+        <div class="loading-section glass-panel hidden"
+             id="loading-section">
+
+            <div class="loader">
+                <div class="scan-line"></div>
+                <i class="fa-solid fa-microchip icon-pulse"></i>
+            </div>
+
+            <h3>Running Deep Neural Networks...</h3>
+
+            <p>
+                Extracting faces and analyzing features.
+                This might take a few moments for videos.
+            </p>
+
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section glass-panel hidden"
+             id="results-section">
+
+            <div class="verdict-banner" id="verdict-banner">
+
+                <h2 id="final-verdict">FAKE</h2>
+
+                <div class="confidence">
+
+                    <span>Confidence Score</span>
+
+                    <div class="progress-bar">
+                        <div class="progress"
+                             id="confidence-bar"></div>
+                    </div>
+
+                    <span id="confidence-text">98.5%</span>
+
+                </div>
+
+            </div>
+
+            <!-- Frame Results -->
+            <div class="frame-results-container hidden"
+                 id="frame-results-container">
+
+                <h3>Frame by Frame Analysis</h3>
+
+                <div class="frames-grid"
+                     id="frames-grid">
+                    <!-- Frames will appear here -->
+                </div>
+
+            </div>
+
+            <button class="btn primary-btn mt-20"
+                    id="new-scan-btn">
+                Scan Another File
+            </button>
+
+        </div>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
